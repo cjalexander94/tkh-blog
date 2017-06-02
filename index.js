@@ -6,7 +6,8 @@ var express = require("express"),
 	passport = require("passport"),
 	session = require("express-session"),
 	path = require("path"),
-	localAuth = require("./auth")
+	// localAuth = require("./auth"),
+	routes = require("./app/routes/routes"),
 	app = express();
 
 app.use(bodyParser.json());
@@ -18,7 +19,7 @@ app.use(bodyParser.urlencoded({
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "app/views"));
 
-app.use("/public", path.join(__dirname, "app/client"));
+app.use("/public", express.static(path.join(__dirname, "app/client")));
 
 app.use(session({
 	secret: 'itsASecret',
@@ -29,9 +30,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-localAuth(passport);
+// localAuth(passport);
 
-
+routes(app);
 
 
 mongoose.connect("mongodb://localhost/api");

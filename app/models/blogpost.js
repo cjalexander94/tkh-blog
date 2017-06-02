@@ -9,7 +9,7 @@ var blogPost = new mongoose.Schema({
 		},
 	picture: img,
 	author: String,
-	body: String,
+	post: String,
 	user: String,
 	footer: String
 	// coments: [
