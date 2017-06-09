@@ -1,9 +1,9 @@
 var auth = require("../../auth/local-signup"),
-	Post = require("../../models/blogModel");
+	Post = require("../../models/blogpost");
 
 var pages = {
 	home: function(req, res){
-		res.render("home";)
+		res.render("home");
 	},
 	index: function(req, res){
 		Post.find({"user": req.user.username}, function(err, post){
@@ -43,7 +43,7 @@ var pages = {
 	},
 	update: function(req, res){
 		res.render("update");
-	}
+	},
 	post: function(req, res){
 		Post.findOne({"_id": req.query.p}, function(err, post){
 			if(err){

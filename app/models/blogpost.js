@@ -1,4 +1,4 @@
-var mongoose = require(mongoose);
+var mongoose = require("mongoose");
 
 var blogPost = new mongoose.Schema({
 	title: String,
@@ -7,11 +7,11 @@ var blogPost = new mongoose.Schema({
 			day: String,
 			year: String
 		},
-	picture: img,
+	//picture: img,
 	author: String,
 	post: String,
 	user: String,
-	footer: String
+	//footer: String
 	// coments: [
 	// 		{
 	// 			comment: String,

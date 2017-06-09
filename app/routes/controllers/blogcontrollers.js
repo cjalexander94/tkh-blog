@@ -63,7 +63,7 @@ var newPost = function(req, res){
 }
 
 function updateBlogPost(req, res){
-	Post.update({"_id": req.query.id}, ($set: {"post": req.body.postBody, "title": req.body.blogTitle}), function(err, doc){
+	Post.update({"_id": req.query.id}, {$set: {"post": req.body.postBody, "title": req.body.blogTitle}}, function(err, doc){
 		console.log(doc);
 		if(err){
 			res.redirect("/index?update=fail");
@@ -83,7 +83,7 @@ function deleteBlogPost(req, res){
 	}); 
 }
 
-exports.create = createBlogPost;
+exports.create = newPost;
 exports.update = updateBlogPost;
 exports.delete = deleteBlogPost;
 

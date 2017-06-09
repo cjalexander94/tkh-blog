@@ -4,9 +4,10 @@ var express = require("express"),
 	hbs = require("hbs"),
 	bcrypt = require("bcrypt-nodejs"),
 	passport = require("passport"),
+	methodOverride = require("method-override"),
 	session = require("express-session"),
 	path = require("path"),
-	// localAuth = require("./auth"),
+	auth = require("./app/auth/passport-local"),
 	routes = require("./app/routes/routes"),
 	app = express();
 
@@ -27,12 +28,14 @@ app.use(session({
 	saveUninitialized: true
 }));
 
+app.use(methodOverride('_method'));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
-// localAuth(passport);
+auth(passport);
 
-routes(app);
+routes(app, passport);
 
 
 mongoose.connect("mongodb://localhost/api");
