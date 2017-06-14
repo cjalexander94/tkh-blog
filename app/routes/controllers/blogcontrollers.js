@@ -28,7 +28,7 @@ var blogPages = {
 		});
 	},
 	update: function(req, res){
-		Post.findOne({"id": req.query.post}, function(err, post){
+		Post.findOne({"id": req.query.id}, function(err, post){
 			if(err){
 				console.log(err);
 			} else {
