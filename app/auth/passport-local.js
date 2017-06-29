@@ -27,7 +27,7 @@ module.exports = function(passport){
 			if (!bcrypt.compareSync(password, user.password)){
 				return done(null, false);
 			}
-			if (user && bc.compareSync(password, user.password)){
+			if (user && bcrypt.compareSync(password, user.password)){
 				return done(null, user);
 			}
 		});

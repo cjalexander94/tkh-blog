@@ -28,7 +28,7 @@ var blogPages = {
 		});
 	},
 	update: function(req, res){
-		Post.findOne({"id": req.query.id}, function(err, post){
+		post.findOne({"_id": req.query.id}, function(err, post){
 			if(err){
 				console.log(err);
 			} else {
@@ -57,28 +57,28 @@ var newPost = function(req, res){
 			if(err){
 				console.log(err);
 			}else{
-				req.redirect("/index")
+				res.redirect("/")
 			}
 		})
 }
 
 function updateBlogPost(req, res){
-	Post.update({"_id": req.query.id}, {$set: {"post": req.body.postBody, "title": req.body.blogTitle}}, function(err, doc){
+	post.update({"_id": req.query.id}, {$set: {"post": req.body.postBody, "title": req.body.blogTitle}}, function(err, doc){
 		console.log(doc);
 		if(err){
-			res.redirect("/index?update=fail");
+			res.redirect("/?update=fail");
 		} else {
-			res.redirect("/index?update=success");
+			res.redirect("/?update=success");
 		}
 	});
 }
 
 function deleteBlogPost(req, res){
-	Post.remove({"_id": req.query.post}, function(err, post){
+	post.remove({"_id": req.query.post}, function(err, post){
 		if(err){
 			console.log(err);
 		} else {
-			res.redirect("/index");
+			res.redirect("/");
 		}
 	}); 
 }

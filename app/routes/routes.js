@@ -6,12 +6,11 @@ var controllers = {
 }
 
 module.exports = function(app, passport){
-	app.get(r.home, controllers.pages.home);
 	app.get(r.login, controllers.pages.login);
 	app.get(r.index, controllers.pages.index);
 	app.get(r.post, controllers.pages.post);
-	app.get(r.create, controllers.pages.create, controllers.blogCtrl.createPage);
-	app.get(r.update, controllers.pages.update, controllers.blogCtrl.updatePage);
+	app.get(r.create, controllers.session, controllers.blogCtrl.createPage);
+	app.get(r.update, controllers.session, controllers.blogCtrl.updatePage);
 	app.post(r.signup, controllers.pages.signup);
 	app.post(r.login, passport.authenticate("local-login", {
 		successRedirect: r.index,

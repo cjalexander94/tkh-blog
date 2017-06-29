@@ -1,12 +1,9 @@
 var auth = require("../../auth/local-signup"),
-	Post = require("../../models/blogpost");
+	post = require("../../models/blogpost");
 
 var pages = {
-	home: function(req, res){
-		res.render("home");
-	},
 	index: function(req, res){
-		Post.find({"user": req.user.username}, function(err, post){
+		post.find({}, function(err, post){
 			if(err){
 				console.log(err);
 			} else {
@@ -18,7 +15,7 @@ var pages = {
 		});
 	},
 	login: function(req, res){
-		res.render("signup");
+		res.render("login");
 	},
 	signup: function(req, res){
 		auth({
@@ -38,14 +35,8 @@ var pages = {
 			}
 		}); 
 	},
-	create: function(req, res){
-		res.render("create");
-	},
-	update: function(req, res){
-		res.render("update");
-	},
 	post: function(req, res){
-		Post.findOne({"_id": req.query.p}, function(err, post){
+		post.findOne({"_id": req.query.p}, function(err, post){
 			if(err){
 				console.log(err);
 				} else {

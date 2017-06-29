@@ -17,8 +17,8 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 
-app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "app/views"));
+app.set("view engine", "hbs");
 
 app.use("/public", express.static(path.join(__dirname, "app/client")));
 
