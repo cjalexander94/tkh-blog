@@ -38,6 +38,7 @@ auth(passport);
 routes(app, passport);
 
 
-mongoose.connect("mongodb://localhost/api");
-app.listen(8080);
-console.log("Server is running!");
+// mongoose.connect("mongodb://localhost/api");
+mongoose.connect("process.env.DB_URL")
+app.listen(process.env.PORT || 8080);
+console.log("Blog is running!");
