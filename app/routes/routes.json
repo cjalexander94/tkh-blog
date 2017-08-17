@@ -5,5 +5,5 @@
 	"signup": "/signup",
 	"create": "/create",
 	"update": "/update",
-	"delete": "/delete"
+	"delete": "/delete",
 }

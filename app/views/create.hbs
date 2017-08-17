@@ -1,9 +1,18 @@
-<div>
-	<form action="/create" method="post">
-		<input type="text" name="blogTitle" placeholder="blog Title" />
-		<br>
-		<textarea rows="6" cols="25" name="postBody" placeholder="Blog Body"></textarea>
-		<br>
-		<input type="submit" value="Create Post" />
-	</form>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="card-block col-sm-10 card-content">
+			<!--Header-->
+		    <div class="form-header blue">
+		        <h3><i class="fa fa-plus"></i> <strong> Create Post</strong></h3>
+		    </div>
+
+			<form class="md-form" action="/create" method="post">
+				<input type="text" name="blogTitle" placeholder="blog Title" />
+				<br>
+				<textarea class="md-textarea" name="postBody" placeholder="Blog Body"></textarea>
+				<br>
+				<button class="btn btn-default" type="submit" value="Create Post">Create Post</button>
+			</form>
+		</div>
+	</div>
 </div>

@@ -1,13 +1,31 @@
-<a href="/">Back</a>
+<div class="container">
+<a class="btn btn-primary" role="button" href="/"> <i class="fa fa-chevron-left"></i> Back</a>
+	<div class="row blog-container">
 
-<h1>{{current.title}}
-	By: {{current.user}}
-	Date: {{current.date.month}} / {{current.date.day}} / {{current.date.year}}	
-</h1>
-<p>{{current.post}}</p>
+		<div class="col-sm-12 blog-content">
+			<h1 class="blog-title"><strong>{{current.title}}</strong></h1>
+			<div class="row">
+				<div class="col-sm-6">
+					<h3>By: {{current.user}}</h3>
+				</div>
 
-<a href="/update?post={{current._id}}">Edit this post</a>
-<br>
-<form method="POST" action="/delete?_method=DELETE&amp;post={{current._id}}">
-	<button class="btn btn-danger" type="submit">Delete</button>
-</form>
+				<div class="col-sm-6 date-container">
+					<h3>Date: {{current.date.month}} / {{current.date.day}} / {{current.date.year}}</h3>
+				</div>
+				
+				<div class="edit-post col-sm-12">
+					<h5><a href="/update?post={{current._id}}">Edit post</a>
+				</h5>
+				</div>
+				<div class="col-sm-12">
+				<p class="post-content">{{current.post}}</p>
+				</div>
+			</div>
+			
+			<br>
+			<form method="POST" action="/delete?_method=DELETE&amp;post={{current._id}}">
+				<button class="btn btn-danger" type="submit">Delete</button>
+			</form>
+		</div>
+	</div>
+<div>
